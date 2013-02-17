@@ -11,6 +11,8 @@ public class CameraControll : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+		//GameObject.Find(名前)は、全てのGameObjectにアクセスして指定した名前のオブジェクトを返す。
+		//使い過ぎると重いので、Update等毎フレーム呼ばれる所では使わない！
 		goal = GameObject.Find ("Goal").transform;
 		player = GameObject.Find ("Player").transform;
 	}
@@ -27,6 +29,7 @@ public class CameraControll : MonoBehaviour
 			BackView();
 	}
 	
+	//俯瞰視点の設定では、プレイヤーとゴールの位置から動的にカメラの位置を決定している。
 	void FukanView ()
 	{
 		transform.RotateAround(Vector3.up,  30f * Time.deltaTime * Mathf.Deg2Rad);

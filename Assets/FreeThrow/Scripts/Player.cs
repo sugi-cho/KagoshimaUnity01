@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 	}
 	
 	// Update is called once per frame
+	//いろんなキー入力、マウス入力。
 	void Update ()
 	{
 		float deltaMouse = (Input.mousePosition.x - preMousePosX) / Screen.width;

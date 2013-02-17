@@ -1,6 +1,9 @@
 using UnityEngine;
 using System.Collections;
 
+//ボールがColliderに当たると、あたったオブジェクトに対して"OnBallHit"というメッセージを送る。
+//すると、そのオブジェクトに割り当てられてるスクリプトのOnBallHit(GameObject)が呼ばれる。
+//無かったら何も起きない（DontRequireReceiver）
 [RequireComponent(typeof(Rigidbody))]
 public class Ball : MonoBehaviour
 {

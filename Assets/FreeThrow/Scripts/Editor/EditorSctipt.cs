@@ -3,15 +3,18 @@ using UnityEditor;
 using System.Collections;
 using System.Collections.Generic;
 
+//エディタースクリプト。エディター上で実行するのもある。
+
 public class EditorSctipt
 {
-
+	//こう書くと、メニューからスクリプトが呼べる。
 	[MenuItem("Custom/BuildScene")]
 	public static void BuidScene ()
 	{
 		CreateGoal ();
 	}
 	
+	//ゴールのカタチを作ってる。
 	static Transform CreateGoal ()
 	{
 		Transform goal = new GameObject ("Goal").transform;

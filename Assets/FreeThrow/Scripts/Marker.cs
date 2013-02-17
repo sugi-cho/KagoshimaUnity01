@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//ボールを投げた時の軌跡を表示する。
 public class Marker : MonoBehaviour
 {
 	
@@ -19,6 +20,8 @@ public class Marker : MonoBehaviour
 	}
 	
 	// Use this for initialization
+	//最初に、numMarkersの分だけ、markerPointのオブジェクトを作る。
+	
 	void Start ()
 	{
 		player = (Player)FindObjectOfType (typeof(Player));
@@ -32,6 +35,11 @@ public class Marker : MonoBehaviour
 			float f = (float)i / (float)numMarkers;
 			Color markerColor = markers [i].material.GetColor ("_TintColor");
 			markerColor.a = (1 - f) * 0.5f;
+			//遠くのものほどアルファが薄くなるように指定している。
+			//マテリアルは自由にプロパティの名前を付けれて、スクリプトから、
+			//"_TintColor"というColorプロパティの値を指定する。
+			//プロパティ名を知るには、Shaderソースを見る。
+			//Unityに元からあるマテリアルのソースはUnityのサイトからダウンロード出来る。
 			markers [i].material.SetColor ("_TintColor", markerColor);
 		}
 		
@@ -48,6 +56,7 @@ public class Marker : MonoBehaviour
 			for (int i = 0; i < markers.Length; i++) {
 				float f = (float)i / (float)numMarkers;
 				float time = f * timeRange;
+				//Paraboraは独自に作ったクラスで、最初の位置と初速度を与えたときの放物運動する物体の指定した時刻での位置を返す。
 				markers [i].transform.position = Parabola.GetPositionAtTime (time, player.transform.position, player.initialVelocity);
 			}
 		}

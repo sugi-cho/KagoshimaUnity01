@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
+//OnGUIで、ボタンとか字とか出せる。
 public class ScoreCounter : MonoBehaviour {
 	
 	public static int Score;
